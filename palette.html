@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesignTool Hub - Palette Generator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Lock Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-darkBg text-slate-100 min-h-screen flex flex-col font-sans select-none">
+
+    <!-- Global Navigation Bar -->
+    <nav class="bg-slate-900 border-b border-slate-800 text-white p-4 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">
+                🎨 DESIGNTOOL
+            </div>
+            <div class="flex gap-6 font-medium">
+                <a href="index.html" class="hover:text-indigo-400 transition">Home</a>
+                <a href="palette.html" class="text-indigo-400 border-b-2 border-indigo-400 pb-1">Palette</a>
+                <a href="gradient.html" class="hover:text-indigo-400 transition">Gradient</a>
+                <a href="picker.html" class="hover:text-indigo-400 transition">Picker</a>
+                <a href="converter.html" class="hover:text-indigo-400 transition">Converter</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Controls Bar -->
+    <div class="bg-slate-900 border-b border-slate-800 px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="text-center sm:text-left">
+            <h1 class="text-xl font-bold">Palette Generator</h1>
+            <p class="text-xs text-slate-400 mt-0.5">Press <kbd class="bg-slate-800 px-1.5 py-0.5 rounded border border-slate-700 text-slate-300 font-mono text-[10px]">Spacebar</kbd> on your keyboard to randomize colors.</p>
+        </div>
+        <button id="generateBtn" class="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold py-2 px-5 rounded-xl transition flex items-center gap-2 shadow-lg shadow-indigo-600/20">
+            <i class="fa-solid fa-arrows-rotate"></i> Generate Palette
+        </button>
+    </div>
+
+    <!-- Palette Display Area -->
+    <main class="flex-grow flex flex-col md:flex-row w-full h-full min-h-[60vh]">
+        <!-- Color Card 1 -->
+        <div class="color-card flex-1 flex flex-row md:flex-col justify-between items-center p-6 transition-all duration-300 relative group" data-locked="false">
+            <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity absolute inset-0 bg-black/5 pointer-events-none"></div>
+            <div class="md:mt-8 font-mono text-xl font-bold tracking-wider color-text drop-shadow-sm cursor-pointer hover:scale-105 transition-transform" title="Click to copy">#1E293B</div>
+            <div class="flex md:flex-col gap-3 md:mb-8 z-10">
+                <button class="lock-btn w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md flex items-center justify-center text-white transition" title="Lock Color">
+                    <i class="fa-solid fa-lock-open text-sm"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Color Card 2 -->
+        <div class="color-card flex-1 flex flex-row md:flex-col justify-between items-center p-6 transition-all duration-300 relative group" data-locked="false">
+            <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity absolute inset-0 bg-black/5 pointer-events-none"></div>
+            <div class="md:mt-8 font-mono text-xl font-bold tracking-wider color-text drop-shadow-sm cursor-pointer hover:scale-105 transition-transform" title="Click to copy">#334155</div>
+            <div class="flex md:flex-col gap-3 md:mb-8 z-10">
+                <button class="lock-btn w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md flex items-center justify-center text-white transition" title="Lock Color">
+                    <i class="fa-solid fa-lock-open text-sm"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Color Card 3 -->
+        <div class="color-card flex-1 flex flex-row md:flex-col justify-between items-center p-6 transition-all duration-300 relative group" data-locked="false">
+            <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity absolute inset-0 bg-black/5 pointer-events-none"></div>
+            <div class="md:mt-8 font-mono text-xl font-bold tracking-wider color-text drop-shadow-sm cursor-pointer hover:scale-105 transition-transform" title="Click to copy">#475569</div>
+            <div class="flex md:flex-col gap-3 md:mb-8 z-10">
+                <button class="lock-btn w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md flex items-center justify-center text-white transition" title="Lock Color">
+                    <i class="fa-solid fa-lock-open text-sm"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Color Card 4 -->
+        <div class="color-card flex-1 flex flex-row md:flex-col justify-between items-center p-6 transition-all duration-300 relative group" data-locked="false">
+            <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity absolute inset-0 bg-black/5 pointer-events-none"></div>
+            <div class="md:mt-8 font-mono text-xl font-bold tracking-wider color-text drop-shadow-sm cursor-pointer hover:scale-105 transition-transform" title="Click to copy">#64748B</div>
+            <div class="flex md:flex-col gap-3 md:mb-8 z-10">
+                <button class="lock-btn w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md flex items-center justify-center text-white transition" title="Lock Color">
+                    <i class="fa-solid fa-lock-open text-sm"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Color Card 5 -->
+        <div class="color-card flex-1 flex flex-row md:flex-col justify-between items-center p-6 transition-all duration-300 relative group" data-locked="false">
+            <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity absolute inset-0 bg-black/5 pointer-events-none"></div>
+            <div class="md:mt-8 font-mono text-xl font-bold tracking-wider color-text drop-shadow-sm cursor-pointer hover:scale-105 transition-transform" title="Click to copy">#94A3B8</div>
+            <div class="flex md:flex-col gap-3 md:mb-8 z-10">
+                <button class="lock-btn w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md flex items-center justify-center text-white transition" title="Lock Color">
+                    <i class="fa-solid fa-lock-open text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notification for Copy Alert -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 border border-slate-700 text-emerald-400 px-4 py-2.5 rounded-xl text-sm font-semibold shadow-2xl opacity-0 transform translate-y-2 pointer-events-none transition-all duration-300 flex items-center gap-2 z-50">
+        <i class="fa-solid fa-circle-check"></i> Color copied to clipboard!
+    </div>
+
+    <!-- Functional JavaScript Logic -->
+    <script>
+        const colorCards = document.querySelectorAll('.color-card');
+        const generateBtn = document.getElementById('generateBtn');
+        const toast = document.getElementById('toast');
+
+        // Helper: Generates a random HEX color
+        function generateRandomHex() {
+            const chars = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += chars[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Helper: Adjust text color readability based on background brightness (YIQ standard)
+        function setTextColorForContrast(hexcolor, textElement) {
+            const r = parseInt(hexcolor.substring(1, 3), 16);
+            const g = parseInt(hexcolor.substring(3, 5), 16);
+            const b = parseInt(hexcolor.substring(5, 7), 16);
+            const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+            
+            // Set text color and lock button contrast colors
+            const darkText = '#0f172a';
+            const lightText = '#f8fafc';
+            textElement.style.color = (yiq >= 128) ? darkText : lightText;
+            
+            const lockBtn = textElement.parentElement.querySelector('.lock-btn');
+            lockBtn.style.color = (yiq >= 128) ? darkText : lightText;
+        }
+
+        // Core App Flow: Loop cards and refresh unlocked ones
+        function refreshPalette() {
+            colorCards.forEach(card => {
+                if (card.getAttribute('data-locked') === 'true') return;
+
+                const newColor = generateRandomHex();
+                const textElem = card.querySelector('.color-text');
+
+                card.style.backgroundColor = newColor;
+                textElem.textContent = newColor;
+                setTextColorForContrast(newColor, textElem);
+            });
+        }
+
+        // Lock button toggle logic
+        colorCards.forEach(card => {
+            const lockBtn = card.querySelector('.lock-btn');
+            const icon = lockBtn.querySelector('i');
+
+            lockBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Avoid triggering any container clicks
+                const isLocked = card.getAttribute('data-locked') === 'true';
+                
+                if (isLocked) {
+                    card.setAttribute('data-locked', 'false');
+                    icon.className = 'fa-solid fa-lock-open text-sm';
+                } else {
+                    card.setAttribute('data-locked', 'true');
+                    icon.className = 'fa-solid fa-lock text-sm';
+                }
+            });
+
+            // Click hex text to copy
+            const textElem = card.querySelector('.color-text');
+            textElem.addEventListener('click', () => {
+                const hexValue = textElem.textContent;
+                navigator.clipboard.writeText(hexValue).then(() => {
+                    // Show custom beautiful toast alert
+                    toast.style.opacity = '1';
+                    toast.style.transform = 'translateY(0)';
+                    
+                    setTimeout(() => {
+                        toast.style.opacity = '0';
+                        toast.style.transform = 'translateY(8px)';
+                    }, 2000);
+                });
+            });
+        });
+
+        // Event Listeners for running the app
+        generateBtn.addEventListener('click', refreshPalette);
+        
+        window.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault(); // Prevent accidental page scrolling down
+                refreshPalette();
+            }
+        });
+
+        // Initialize with colors right away on load
+        refreshPalette();
+    </script>
+</body>
+</html>
