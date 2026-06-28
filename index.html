@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesignTool Hub - Home</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-darkBg text-slate-100 min-h-screen flex flex-col font-sans">
+
+    <!-- Global Navigation Bar -->
+    <nav class="bg-slate-900 border-b border-slate-800 text-white p-4 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">
+                🎨 DESIGNTOOL
+            </div>
+            <div class="flex gap-6 font-medium">
+                <a href="index.html" class="text-indigo-400 border-b-2 border-indigo-400 pb-1">Home</a>
+                <a href="palette.html" class="hover:text-indigo-400 transition">Palette</a>
+                <a href="gradient.html" class="hover:text-indigo-400 transition">Gradient</a>
+                <a href="picker.html" class="hover:text-indigo-400 transition">Picker</a>
+                <a href="converter.html" class="hover:text-indigo-400 transition">Converter</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Header Section -->
+    <header class="max-w-4xl mx-auto text-center mt-16 px-4">
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+            The Ultimate Toolkit for <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">Web Designers</span>
+        </h1>
+        <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-8">
+            Stop wasting time jumping between apps. Generate matching color palettes, craft custom CSS gradients, sample precise screen shades, and instantly convert formats all in one place.
+        </p>
+    </header>
+
+    <!-- Main Tools Grid Dashboard -->
+    <main class="max-w-6xl mx-auto px-4 mb-16 flex-grow w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            
+            <!-- Card 1: Palette Generator -->
+            <div class="bg-cardBg p-6 rounded-2xl border border-slate-800 hover:border-indigo-500/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between group">
+                <div>
+                    <div class="w-12 h-12 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">🎨</div>
+                    <h2 class="text-2xl font-bold mb-2">Palette Generator</h2>
+                    <p class="text-slate-400 text-sm mb-6">Generate beautiful, cohesive 5-color palettes with the press of a spacebar. Lock colors you love and copy clean HEX codes instantly.</p>
+                </div>
+                <a href="palette.html" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-center py-2.5 px-4 rounded-xl transition">Open Generator</a>
+            </div>
+
+            <!-- Card 2: Gradient Maker -->
+            <div class="bg-cardBg p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between group">
+                <div>
+                    <div class="w-12 h-12 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">✨</div>
+                    <h2 class="text-2xl font-bold mb-2">Gradient Maker</h2>
+                    <p class="text-slate-400 text-sm mb-6">Mix multiple shades, adjust smooth rotation angles, preview the result live, and grab production-ready CSS code snippets seamlessly.</p>
+                </div>
+                <a href="gradient.html" class="bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-center py-2.5 px-4 rounded-xl transition">Design Gradients</a>
+            </div>
+
+            <!-- Card 3: Color Picker -->
+            <div class="bg-cardBg p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between group">
+                <div>
+                    <div class="w-12 h-12 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">🧪</div>
+                    <h2 class="text-2xl font-bold mb-2">Color Picker</h2>
+                    <p class="text-slate-400 text-sm mb-6">Leverage the browser Eyedropper tool to sample precise pixel colors directly off your display screen inside a dynamic workspace environment.</p>
+                </div>
+                <a href="picker.html" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-center py-2.5 px-4 rounded-xl transition">Launch Picker</a>
+            </div>
+
+            <!-- Card 4: Format Converter -->
+            <div class="bg-cardBg p-6 rounded-2xl border border-slate-800 hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between group">
+                <div>
+                    <div class="w-12 h-12 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">🔄</div>
+                    <h2 class="text-2xl font-bold mb-2">Color Converter</h2>
+                    <p class="text-slate-400 text-sm mb-6">Quickly translate colors between core digital production formats: HEX, RGB values, and descriptive modern web HSL properties.</p>
+                </div>
+                <a href="converter.html" class="bg-pink-600 hover:bg-pink-500 text-white font-semibold text-center py-2.5 px-4 rounded-xl transition">Run Converter</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Sticky Footer Section -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-6 text-center text-sm text-slate-500">
+        <p>© 2026 DesignTool Suite. Built with Vanilla JS & Tailwind CSS.</p>
+    </footer>
+
+</body>
+</html>
